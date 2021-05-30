@@ -1,0 +1,1137 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+
+<style>
+*{
+    box-sizing: border-box;
+}
+html{
+    height:100vh;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
+
+body{
+/*    font-family: "poppins";*/
+    font-family: 'Poppins', sans-serif;
+    padding:0px;
+    margin:0px;
+    min-height: 100vh;
+    background-color:whitesmoke;
+    overflow: visible;
+     position: relative;
+}
+
+.header{
+    width: 100%;
+    height: 80px;
+    z-index: 1;
+    position: fixed;
+    background-color:#1c4e80;
+    display: flex;
+    justify-content:space-around;
+}
+.screenicon{
+    background-color: white;
+    height:auto;
+    width:60px;
+    position: fixed;
+    right:0px;
+    top:250px;
+}
+.screenicon a{
+    color:coral;
+    display: block;
+    font-size:25px;
+    margin:25px 15px;
+}
+.screenicon a:hover{
+    color:#1c4e80;
+}
+.searchbox{
+    height: 55px;
+    width:50vw;
+    background-color: white;
+    margin-left:14%;
+    margin-top: 10px;
+    border:none;
+    outline: none;
+    border:2px solid lightgrey;
+    padding:5px;
+    border-radius: 100px;
+    display:flex;
+    justify-content:center;
+}
+.searchbar{
+     height: 100%;
+     width:95%;
+    border-radius:100px;
+    color:dimgray;
+    border:none;
+    outline:none;
+    padding:20px;
+}
+.search{
+    display: block;
+    padding:10px;
+postion:absolute;
+left:20%;
+    font-size:1.3rem;
+    
+}
+.icon{
+   margin-left:auto;
+}
+.icon ul{
+    list-style-type: none;
+    display: flex;
+    flex-shrink:0;
+}
+.icon li{
+    margin:0 10px;
+}
+.icon a{
+    display: block;
+    font-size: 25px;
+    margin:0 10px;
+    padding: 10px;
+    color: white;   
+}
+.msg_dot{
+    position: relative;
+    font-size:.6rem;
+    color:coral;
+    position: absolute;
+    top:18;
+    right:185px;
+}
+.noti_dot{
+    position: relative;
+    font-size:.6rem;
+    color:coral;
+    position: absolute;
+    top:18;
+    right:100px;
+}
+.icon a:hover{
+    background-color: white;
+    color:#1c4e80;
+    border-radius: 100px;
+    transition: 1.2s ease-out;
+}
+#logout{
+    display: none;
+}
+.logout_lbl{
+    display: block;
+    font-size: 40px;
+    margin:5px 10px;
+    padding:10px;
+    color:white;
+    cursor: pointer;    
+}
+.logout_lbl:hover{
+    background-color:white;
+    color:#1c4e80;
+    border-radius: 100px;
+    transition: 1.2s ease-out;
+}
+.logoutdiv{
+    display: none; 
+    position: relative;
+    top:20px;
+    width:70px;
+    height:40px;
+    border:2px solid white;
+    text-align: center;
+     background-color:#1c4e80;
+}
+.logoutdiv a{
+    display: block;
+    padding: 10px;
+    color:white;
+}
+.logoutdiv:hover{
+    border-radius:100px;
+    transition:1.2s ease-out;
+}
+#logout:checked~ .logoutdiv
+{
+     display: block;
+}
+.three_dots{
+    display: none;
+    background-color:white;
+    height:40;
+    width:200px;
+    position:absolute;
+    top:80px;
+    right:0px;
+}
+.three_dots .msg_dot{
+    font-size:.5rem;
+    color:coral;
+    position: absolute;
+    top:5;
+    right:110px;
+}.three_dots .noti_dot{
+    font-size:.5rem;
+    color:coral;
+    position: absolute;
+    top:5;
+    right:44px;
+}
+.three-dots ul{
+     margin:0px;
+    padding:0px;
+}
+.three_dots ul li{
+   list-style-type: none;
+    display: inline-block;
+}
+.three_dots ul a{
+       font-size:22px;
+       color:black;
+       display: block;
+       padding:20;
+      position: relative;
+       top:-25px;
+}
+.three_dots a:hover{
+     text-shadow:1px 1px;
+}
+#dots{
+    position: absolute;
+    display: none;
+}
+#dots:checked~ .three_dots{
+    display:block;
+}
+.lbl_dot{
+    display:none;
+    font-size:25px;
+    cursor:pointer;
+    position: relative;
+    right:-2%;
+    top:25px;
+    color:white;
+}
+.main{
+    height:auto;
+    width:auto;
+    margin-top:80px;
+    padding:10px 50px;
+}
+.dashhead{
+    font-size:2.4rem;
+}
+.dashhead h:hover{
+    color:#1c4e80;
+}
+.sidebar{
+    z-index:1;
+    height:100%;
+    color: white;
+      position: fixed;
+      left:0px;
+      top:0px ;
+      width: 250px;
+     background: rgb(25,14,97);
+background: linear-gradient(351deg, rgba(25,14,97,1) 14%, rgba(7,7,31,0.9500175070028011) 100%);
+    transform: translateX(-250px);
+    transition: all 0.5 ease;
+   
+}
+.sidebartop{
+    height:150px;
+    font-size: 24px;
+    padding:15px;
+    line-height:55px;
+}
+.sidebartop h{
+    font-size:2rem;
+}
+.sidebartop span{
+    font-size:4rem;
+}
+.sidebartop a{
+    color:white;
+    font-size: 2rem;
+}
+.sidebarbottom ul{
+    padding:0px;
+    margin:0px;
+    list-style-type: none;
+    font-size: 20px;
+}
+.sidebarbottom a{
+    display: block;
+    text-decoration: none;
+    color:white;
+    padding:30px;
+    box-sizing: border-box;
+    border-top: 2px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid black;
+    transform: translateY(0);
+    transition: 0.4s;
+}
+.sidebarbottom a:hover{
+    transform:translatey(-10px);
+    box-shadow: 2px 2px 24px rgba(255,255,255,0.1);
+}
+.sidebaricontoggle{
+    font-size:30px;
+    color: white;
+    position: absolute;
+    top:15px;
+    left:0px;
+    cursor: pointer;
+}
+label #bars{
+    z-index: 1;
+    position:fixed;
+    left:20px;
+    padding:6px 12px;
+    transition:0.2s;
+}
+label #cross{
+    z-index: 1111;
+    position:fixed;
+    left:-195px;
+}
+#sidebaricon{
+    position: relative;
+    top:-111px;
+    left:-111px;
+    visibility: hidden;
+}
+#sidebaricon:checked~ .sidebar{
+      transform: translateX(0px);
+     transition:transform 0.4s;
+}
+.sidebarbottom i{
+    margin-right: 10px;
+}
+  label{
+      cursor:pointer;
+          }
+#div1{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    min-height:100%;
+    border-top:2px solid white;
+    display: none;
+    margin-top:60px;
+   position: absolute;
+    overflow:hidden;
+}
+.tabledata{
+    
+    width:80%;  
+    height:auto;
+    margin:0px auto;
+}
+.top_of_table{
+     position: relative;
+     left:25px;
+     top:15px;
+     padding:20px;
+}
+.top_of_table h{
+    font-size:2.5rem;
+    color:#1c4e80;
+}
+ table{
+     background-color:white;
+     border-collapse:collapse;
+     width:90%;
+     max-height:800px;
+     margin:80px auto;
+     margin-top: 20px;
+     text-align:center;
+     overflow:visible;
+}
+th,td{
+   border-bottom: 1px solid #ddd;
+    padding:10px 0px;
+}
+td i{
+    color:mediumvioletred;
+}
+
+tr:hover{
+    background-color: #f5f5f5;
+    box-shadow:5px 5px 20px #bfb9e7;
+    transition: 0.5s;
+    
+}
+#div2{
+     display: flex;
+    flex-direction: column;
+    width:100%;
+    min-height:100%;
+    border-top:2px solid white;
+    display: none;
+    margin-top:60px;
+   position: absolute;
+    overflow:hidden;
+}
+
+#div3{
+     display: flex;
+    flex-direction: column;
+    width:100%;
+    min-height:100%;
+    border-top:2px solid white;
+    display: none;
+    margin-top:60px;
+   position: absolute;
+    overflow:hidden;
+}
+#div4{
+     display: flex;
+    flex-direction: column;
+    width:100%;
+    min-height:100%;
+    border-top:2px solid white;
+    display: none;
+    margin-top:60px;
+   position: absolute;
+    overflow:hidden;
+}
+
+
+#sidebaricon:checked~ label #bars{
+    left:200px;
+    opacity: 0;
+    pointer-events: none;
+}
+#sidebaricon:checked~ label #cross{
+    left:195px;
+}
+
+.boxes{
+    display: grid;
+    grid-template-columns: repeat(2,50%);
+    grid-template-rows:400px 300px 500px 400px;
+}
+.box{
+    background-color:#fff;
+    font-family:'Poppins', sans-serif;
+/*    fontsize*/
+    font-size:1.3rem;    
+    margin:30px;
+    padding:20px;
+    border:2px solid  #e5e9f2;
+    border-radius:7px;
+    transform: translateY(0);
+    transition: 0.4s;
+}
+/*span*/
+.box span{
+    line-height:40px;
+}
+.box span:nth-child(1){
+    font-size:2.1rem;
+}
+.box:hover{
+    transform: translateY(-10px);
+}
+.box1{
+    background-color:#1c4e80;
+    color:white;
+}
+
+.box5{
+    grid-column: 1/span 2;
+}
+.box5 h{
+    padding-top: 10px;
+    font-size: 24px;
+    color:darkgrey;
+}
+#box5table{
+    background-color:;
+    width:100%;
+    height: auto;
+    border-bottom:2px solid #e5e9f2;
+    margin-top:5px;
+}
+.footer{
+    position: absolute;
+    bottom:0;
+    width:100%;
+    font-family: "poppins", sans-serif;
+    height:75px; 
+    background-color: white;
+   border:2px solid  #e5e9f2;
+    box-shadow: 10px 10px 20px  #e5e9f2;
+    display: flex; 
+    justify-content: space-between;
+}
+.footer ul{
+    margin:0px;
+    padding:0px;
+    list-style-type: none;
+     display:flex;
+}
+.footer a{
+    display: block;
+    padding:30px;
+    
+}
+.footer a:hover{
+    color:#1c4e80;
+}
+
+#editt{
+    display: none;
+
+}
+#edit:checked! .editt{
+    display: block;
+}
+
+
+/*responsive wesite CSS*/
+@media screen and  (max-width: 1080px){
+    .searchbox{
+        margin-left: 150px;
+    }
+  
+}
+@media screen and  (max-width: 852px){
+    .searchbox{
+        margin-left: 100px;
+    }
+    .boxes{
+    display: flex;
+    flex-direction: column;
+}
+    .box1, .box2{
+        height:400px;
+    }
+    .box3, .box4{
+        height: 300px;
+    }
+    .box5{
+        height: 500px;
+    }
+    .box6, .box7{
+        min-height:350px;
+    }
+    table{
+        height:70%;
+    }
+@media screen and  (max-width:650px){
+    .icon a{
+        margin: 10 5%;
+    }
+    .icon ul{
+        margin-right:5;
+       
+    }
+
+    @media screen and  (max-width:360px){
+        .footer{
+            min-width:167%;
+        }
+        .footer a{
+            padding:30px 5px;
+        }
+        .main{
+            width:140%;
+            padding:10px 5px;
+        }
+        table{
+            height:400px;
+        }
+        .searchbox{
+            width:60%;
+        }
+    }
+    @media screen and (max-width:500px){
+        .icon{
+            display: none;
+        }
+        .lbl_dot{
+            display:block;
+           
+        }
+        .searchbox{
+            margin-left:12%;
+            width:60%;
+        }
+    }
+    @media only screen and (min-width:360px) and (max-width:450px){
+        
+        html{
+            height: 100%;
+        }
+        body{
+            min-height:vh;
+        }
+        .main{
+            width:140%;
+            padding:0px;
+        }
+        .searchbox{
+          
+        }
+        #div1{
+            width:170%;
+            min-height: 800px;
+        } 
+        #div2{
+            width:170%;
+              min-height:158vh;
+        }
+        #div3{
+            width:170%;
+              min-height:158vh;
+        } 
+        #div4{
+            width:170%;
+            min-height:158vh;
+        }
+        .footer{
+            width:170%;
+        }
+        .foot{
+            width:100%;
+            position: absolute;
+            bottom:0px;
+        }
+        .tabledata{
+            height:150%;
+        }
+    }
+</style>
+</head>
+<body>
+     <div class="header">
+        <!--       i've put search bar and search icon inside a div name searchbox  -->
+        <!--         inside a div searchbox there're two div, i changed class name of searchbar which was searchbox before  -->
+                     <div class="searchbox">
+                         
+                         <div style="width:95%;"><input type="search" placeholder="Search by Company Name, Customer id or Email adress" class="searchbar"></div>
+                         
+                         <div> <a href=""><i class="far fa-search search " ></i></a></div>
+                         </div>
+                         
+                           <input type="checkbox" id="dots">
+                             <label for="dots" class="lbl_dot" ><i class="fas fa-ellipsis-v"></i></label> 
+                           <div class="icon"> 
+        <!--                         added dot icon with class here-->
+                               <ul>
+                                   <li>
+                                       <a><i class="fal fa-comments-alt"></i><sup id="messagenotification"></sup></a>
+                                       <div id="messagediv" style="width: 100px; height: 100px; display: none; background-color:white; border-radius: 2%;"></div>
+                                   </li>
+                                   <li>
+                                     
+                                       <a href=""><i class="far fa-bell"></i><sup id="registernotification"></sup></a>
+                                   </li>
+                                   </ul>
+                                </div> 
+                                 <div>
+                                       <input type="checkbox" id="logout">
+                                       <label for="logout" class="logout_lbl"><i class="fas fa-user-circle"></i></label>
+                                   
+                               
+                                   <div class="logoutdiv">
+                                       <a href="logoutsuperadmin">logout</a>
+                                   </div>
+                    </div>
+                        
+                         <div class="three_dots"> 
+        <!--                      added dot icon with class here-->
+                             <ul>
+                                 <li> <a href=""><i class="fal fa-comments-alt"></i></a><sup id="messagenotification"></sup>
+                                 </li>
+                                 <li>  <a href=""><i class="far fa-bell"></i></a><i class="fas fa-user-circle"></i>
+                                 </li>
+                             </ul>
+                       </div>
+                </div>
+          <input type="checkbox" id="sidebaricon">
+             <label for="sidebaricon" class="sidebaricontoggle">
+                 <i class="fas fa-bars" id="bars"></i>
+                 <i class="fas fa-times-square" id="cross" ></i>
+                 
+        </label>
+         <div class="sidebar">
+            <div class="sidebartop">
+            <h>
+                <span>S</span>uper Admin
+                </h><br>
+                <a href="">Dashboard</a>
+               
+            </div>
+            <div class="sidebarbottom">
+                <ul>
+                    <li><a href="#" onclick="opendiv1()"><i class="fal fa-building"></i>Company</a></li>
+                    <li><a href="#" onclick="opendiv2()"><i class="fal fa-comment-alt-edit"></i>Feedbacks</a></li>
+                    <li><a href="#" onclick="opendiv3()"><i class="fal fa-file-contract"></i>Contact Form</a></li>
+                    <li><a href="#" onclick="opendiv4()"><i class="fal fa-id-card-alt"></i>Random ID</a></li>
+                </ul>
+            </div>
+        </div>
+         <div class="screenicon">
+             <div>
+                 <a href=""><i class="fal fa-cogs"></i></a>
+             </div>
+             <div>
+                 <a href=""><i class="far fa-shopping-cart"></i></a>
+             </div>
+             <div>
+                 <a href=""><i class="fas fa-th-large"></i></a>
+             </div>
+        </div>
+       <section class="maintab">
+          <div id="div1"  class="tabcontent">
+        <div class="ctable tabledata">
+            <div class="top_of_table">
+                <h><b>COMPANY</b></h>
+            </div>
+                      <table> 
+                          <tr>
+                           <th>ID</th>
+                           <th>company price</th>
+                           <th>Date</th>
+                           <th>Amount</th>
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                             <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr> 
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                        
+                      </table>
+                    </div>
+        </div>
+         <div id="div2"  class="tabcontent">
+        <div class="feedbacktable tabledata">
+                     <div class="top_of_table">
+                <h><b>FEEDBACK</b></h>
+            </div>
+                     <table> 
+                          <tr>
+                           <th>ID</th>
+                           <th>company price</th>
+                           <th>Date</th>
+                           <th>Amount</th>
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                             <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr> 
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                        
+                      </table>
+                    </div>
+        </div>
+          <div id="div3"  class="tabcontent">
+        <div class="contacttable tabledata">
+                          <div class="top_of_table">
+                    <h><b>CONTACT FORM</b></h>
+
+            </div>
+                      <table> 
+                          <tr>
+                           <th>ID</th>
+                           <th>company price</th>
+                           <th>Date</th>
+                           <th>Amount</th>
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                             <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr> 
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                        
+                      </table>
+                    </div>
+        </div>
+         <div id="div4"  class="tabcontent">
+        <div class="randomtable tabledata">
+                       <div class="top_of_table">
+                <h><b>RANDOM TABLE</b></h>
+            </div>
+                      <table> 
+                          <tr>
+                           <th>ID</th>
+                           <th>company price</th>
+                           <th>Date</th>
+                           <th>Amount</th>
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                             <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr> 
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                        
+                      </table>
+                    </div>
+        
+        </div>
+        </section>
+    <section id="main">
+        <div class="main">
+            <div class="dashhead" style="padding:0px 30px;"><h><b>DASHBOARD</b></h></div>
+                <div class="boxes">
+                  <div class="box box1">
+                      <h><b>Total Sales</b></h>
+                      <h2>$74598.01</h2>
+                      <h3>$7,395.37 in last month</h3>
+                      <h4>This week so far</h4>
+                      <h2>$1,338.72</h2>
+                  </div>
+                  <div class="box box2">
+                      <h><b>Average order</b></h>
+                      <h2><b>$463.35</b></h2>
+                      <p>Orders over time</p>
+                      
+                    </div>
+                  <div class="box box3">
+                             <h2>Orders</h2>
+                            
+                    </div>
+                  <div class="box box4">
+                            <h2>Customers</h2>
+                    </div>
+                  <div class="box box5">
+                      <h><b> RECENT REGISTERED</b></h>
+                      <table id="box5table"> 
+                          <tr>
+                           <th>ID</th>
+                           <th>company price</th>
+                           <th>Date</th>
+                           <th>Amount</th>
+                          </tr>
+                         <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                             <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr> 
+                          <tr>
+                              <td>1</td>
+                              <td>$342</td>
+                              <td>2/4/2021</td>
+                              <td>$3223</td>
+                              
+                          </tr>
+                      </table>
+                    </div>
+                  <div class="box box6">
+                       <h2>Order</h2>
+                    </div>
+                  <div class="box box7">
+                       <h2>Cost</h2>
+                    </div>
+                </div>
+        </div>
+        </section>
+        
+        <div class="footer">
+             <a href="">© 2021 WhistleBlitz.</a>
+            <ul>
+                <li><a href="">Terms</a></li>
+                <li><a href="">Privacy</a></li>
+                <li><a href="">Help</a></li>
+            </ul>
+        </div>
+        <script>
+             function opendiv1(){
+                 document.getElementById('main').style.display = "none"; 
+                 document.getElementById('div1').style.display="block";
+                 document.getElementById('div2').style.display="none";
+                 document.getElementById('div3').style.display="none";
+                 document.getElementById('div4').style.display="none";
+             } 
+            function opendiv2(){
+                document.getElementById('main').style.display = "none"; 
+                 document.getElementById('div1').style.display="none";
+                 document.getElementById('div2').style.display="block";
+                 document.getElementById('div3').style.display="none";
+                 document.getElementById('div4').style.display="none";
+             }
+            function opendiv3(){
+                document.getElementById('main').style.display = "none"; 
+                 document.getElementById('div1').style.display="none";
+                 document.getElementById('div2').style.display="none";
+                 document.getElementById('div3').style.display="block";
+                 document.getElementById('div4').style.display="none";
+             } 
+            function opendiv4(){
+               document.getElementById('main').style.display = "none"; 
+                 document.getElementById('div1').style.display="none";
+                 document.getElementById('div2').style.display="none";
+                 document.getElementById('div3').style.display="none";
+                 document.getElementById('div4').style.display="block";
+             }
+        </script>
+    </body>
+</html>
